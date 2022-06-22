@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="description" content="Learning Dexterity from Internet Videos">
+  <meta name="keywords" content="Imitation Learning, Robotics, Dexterous Manipuation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:site_name" content="VideoDex: Learning Dexterity from Internet Videos" />
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="VideoDex: Learning Dexterity from Internet Videos" />
+  <meta property="og:description" content="VideoDex: Learning Dexterity from Internet Videos" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="./resources/teaser.png" />
+  <meta property="og:image:secure" content="./resources/teaser.png" />
+  <meta property="og:video" content="./resources/compressed.mp4" />
+  <meta property="og:video:secure" content="./resources/compressed.mp4" />
+
+  <meta property="article:publisher" content="/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="VideoDex: Learning Dexterity from Internet Videos" />
+  <meta name="twitter:url" content="/" />
+  <meta name="twitter:image" content="./resources/teaser.png" />
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="900" />
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <meta name="twitter:card" content="player" />
+  <meta name="twitter:image" content="./resources/teaser.png" />
+  <meta name="twitter:player" content="https://www.youtube.com/embed/46OxlcJ48Bg" />
+  <meta name="twitter:player:width" content="640" />
+  <meta name="twitter:player:height" content="360" />
+
+
+  <title>VideoDex: Learning Dexterity from Internet Videos</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="900" />
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <meta name="twitter:card" content="player" />
+  <meta name="twitter:image" content="./resources/crop_method.png" />
+  <meta name="twitter:player:width" content="640" />
+  <meta name="twitter:player:height" content="360" />
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">VideoDex:</h1><h2 class = "title is-34 publication-title">Learning Dexterity from Internet Videos</h2>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Anonymous CoRL Submission
+              <br>
+              Paper ID: 63
+            </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="./resources/CoRL-Energy-Locomotion.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="#method_video"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="content has-text-centered">
+      <video width="960" height="720" loop muted controls picture-in-picture>
+        <source src="./resources/compressed.mp4" type="video/mp4">
+      </video>
+    </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="content has-text-justified">
+          <p style = "font-size: 20px">
+To build general robotic agents that can operate in many environments, it is imperative for the robot to collect experience in the real world.  However, this is often not feasible due to safety, time and hardware restrictions.  We thus propose leveraging the next best thing as real world experience: internet videos of humans using their hands.  Visual priors, such as visual features, are often learned from videos, but we believe that more information from videos can be utilized as a stronger prior.  We build a learning algorithm, VideoDex, that leverages visual, action and physical priors from human video data to guide robot behavior.  These action and physical priors in the neural network dictate the typical human behavior for a particular robot task.   We test our approach on a robot arm and dexterous hand based system and show strong results on many different manipulation tasks, outperforming various state-of-the-art methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--/ Abstract. -->
+
+  <!-- Paper video. -->
+  <!--/ Paper video. -->
+  <h2 class="title is-2" style="text-align: center;">Individual Results</h2>
+  <br>
+
+  <div class="row no-gutters">
+    <div class="row no-gutters">
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/0.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/1.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+    </div>
+
+    <div class="row no-gutters">
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/2.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/3.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+    </div>
+
+    <div class="row no-gutters">
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/4.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/5.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+    </div>
+
+    <div class="row no-gutters">
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/6.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/7.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+    </div>
+
+    <div class="row no-gutters">
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/8.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+      <div class="col-6" style= " padding-left: 10px; padding-right: 0px;">
+          <video playsinline autoplay loop muted src="./resources/9.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+    </div>
+
+
+  <!-- <div class="row no-gutters">
+
+    <div class="col-4">
+        <video playsinline autoplay loop muted src="./resources/4.mp4" width="100%"
+               style="border-radius:10px; border:1px solid black"></video>
+    </div>
+
+    <div class="col-4">
+        <video playsinline autoplay loop muted src="./resources/5.mp4" width="100%"
+               style="border-radius:10px; border:1px solid black"></video>
+    </div>
+
+</div>
+
+
+<div class="row no-gutters">
+
+  <div class="col-4">
+      <video playsinline autoplay loop muted src="./resources/6.mp4" width="100%"
+             style="border-radius:10px; border:1px solid black"></video>
+  </div>
+
+  <div class="col-4">
+      <video playsinline autoplay loop muted src="./resources/7.mp4" width="100%"
+             style="border-radius:10px; border:1px solid black"></video>
+  </div>
+
+</div>
+
+<div class="row no-gutters">
+
+  <div class="col-5">
+      <video playsinline autoplay loop muted src="./resources/8.mp4" width="100%"
+             style="border-radius:10px; border:1px solid black"></video>
+  </div>
+
+  <div class="col-5">
+      <video playsinline autoplay loop muted src="./resources/9.mp4" width="100%"
+             style="border-radius:10px; border:1px solid black"></video>
+  </div>
+
+</div> -->
+
+
+
+
+
+
+    <!-- <div class="row no-gutters">
+      <div class="col-3">
+          <video playsinline autoplay loop muted src="./resources/3.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+      <div class="col-3">
+          <video playsinline autoplay loop muted src="./resources/4.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+      <div class="col-3">
+          <video playsinline autoplay loop muted src="./resources/5.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+      <div class="col-3">
+          <video playsinline autoplay loop muted src="./resources/6.mp4" width="100%"
+                 style="border-radius:10px; border:1px solid black"></video>
+      </div>
+
+    </div>
+  </div>
+  <br><br>
+  <h2 class="title is-2" style="text-align: center;">Train Object Demos</h2>
+  <br>
+  <div class="row no-gutters">
+    <div class="row no-gutters">
+        <div class="col-4">
+            <video playsinline autoplay loop muted src="./resources/7.mp4" width="100%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+            <video playsinline autoplay loop muted src="./resources/8.mp4" width="100%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+        <div class="col-4">
+            <video playsinline autoplay loop muted src="./resources/9.mp4" width= "100%"
+                   style="border-radius:10px; border:1px solid black"></video>
+        </div>
+    </div> -->
+  </div>
+</div>
+</section>
+
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a href="./resources/CoRL-Energy-Locomotion.pdf" class="large-font bottom_buttons">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <!-- <a class="large-font bottom_buttons" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+      <br />
+      <p>Page template borrowed from <a href="https://nerfies.github.io"><span class="dnerf">Nerfies</span></a>.</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
